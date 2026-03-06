@@ -1,0 +1,13 @@
+<h1>My Puzzles</h1>
+
+<a href="{% url 'add_puzzle' %}">Add Puzzle</a>
+
+<ul>
+    {% for puzzle in puzzles %}
+        <li>
+            {{ puzzle.title }} - {{ puzzle.get_status_display }} - {{ puzzle.pieces }} pieces
+        </li>
+    {% empty %}
+        <li>No puzzles added yet.</li>
+    {% endfor %}
+</ul>
