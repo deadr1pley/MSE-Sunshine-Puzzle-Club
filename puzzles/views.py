@@ -6,7 +6,7 @@ from .forms import PuzzleForm, PuzzleSessionForm
 # Create your views here.
 @login_required
 def puzzle_list(request):
-    puzzles = Puzzle.objects.filter(user=request.user)
+    puzzles = Puzzle.objects.filter(user=request.user).order_by('-id')
     return render(request, 'puzzles/puzzle_list.html', {'puzzles': puzzles})
 
 @login_required
