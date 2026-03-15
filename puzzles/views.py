@@ -64,13 +64,14 @@ def add_session(request, puzzle_id):
 
     return render(request, 'puzzles/add_session.html', {'form': form, 'puzzle': puzzle})
 
-
 @login_required
 def puzzle_sessions(request, puzzle_id):
     puzzle = get_object_or_404(Puzzle, id=puzzle_id, user=request.user)
-    sessions = puzzle.sessions.all()
+    sessions = puzzle.sessions.all().order_by('-session_date')
+    total_minutes = sum(session.time_spent_minutes for session in sessions)
 
     return render(request, 'puzzles/puzzle_sessions.html', {
         'puzzle': puzzle,
-        'sessions': sessions
+        'sessions': sessions,
+        'total_minutes': total_minutes,
     })

@@ -5,21 +5,37 @@
 {% block content %}
 <h1>Sessions for {{ puzzle.title }}</h1>
 
+<p><strong>Total time spent:</strong> {{ total_minutes }} minutes</p>
+
 <a href="{% url 'add_session' puzzle.id %}">Log New Session</a>
-
-<ul>
-    {% for session in sessions %}
-        <li>
-            {{ session.session_date }} - {{ session.time_spent_minutes }} minutes
-            {% if session.notes %}
-                ({{ session.notes }})
-            {% endif %}
-        </li>
-    {% empty %}
-        <li>No sessions logged yet.</li>
-    {% endfor %}
-</ul>
-
 <a href="{% url 'puzzle_list' %}">Back to puzzles</a>
 
+{% if sessions %}
+    <table border="1" cellpadding="8">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Time Spent</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for session in sessions %}
+                <tr>
+                    <td>{{ session.session_date }}</td>
+                    <td>{{ session.time_spent_minutes }} minutes</td>
+                    <td>
+                        {% if session.notes %}
+                            {{ session.notes }}
+                        {% else %}
+                            No notes
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No sessions logged yet.</p>
+{% endif %}
 {% endblock %}
