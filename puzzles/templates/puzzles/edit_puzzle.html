@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Puzzle | MSE Sunshine Puzzle Club{% endblock %}
+
+{% block content %}
+    <h1>Edit Puzzle</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Puzzle</button>
+    </form>
+
+    <a href="{% url 'puzzle_list' %}">Back to puzzle list</a>
+{% endblock %}

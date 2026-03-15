@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Puzzle | MSE Sunshine Puzzle Club{% endblock %}
+
+{% block content %}
+    <h1>Delete Puzzle</h1>
+
+    <p>Are you sure you want to delete "{{ puzzle.title }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Yes, delete</button>
+    </form>
+
+    <a href="{% url 'puzzle_list' %}">Cancel</a>
+{% endblock %}
