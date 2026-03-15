@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Log Session{% endblock %}
+
+{% block content %}
+<h1>Log Session for {{ puzzle.title }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Save Session</button>
+</form>
+
+<a href="{% url 'puzzle_list' %}">Back</a>
+
+{% endblock %}

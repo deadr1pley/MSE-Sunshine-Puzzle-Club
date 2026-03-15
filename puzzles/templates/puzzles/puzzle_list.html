@@ -13,6 +13,8 @@
                 {{ puzzle.title }} - {{ puzzle.get_status_display }} - {{ puzzle.pieces }} pieces
                 | <a href="{% url 'edit_puzzle' puzzle.id %}">Edit</a>
                 | <a href="{% url 'delete_puzzle' puzzle.id %}">Delete</a>
+                | <a href="{% url 'add_session' puzzle.id %}">Log Session</a>
+                | <a href="{% url 'puzzle_sessions' puzzle.id %}">View Session</a>
             </li>
         {% empty %}
             <li>No puzzles added yet.</li>

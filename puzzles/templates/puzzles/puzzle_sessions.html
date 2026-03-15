@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Puzzle Sessions{% endblock %}
+
+{% block content %}
+<h1>Sessions for {{ puzzle.title }}</h1>
+
+<a href="{% url 'add_session' puzzle.id %}">Log New Session</a>
+
+<ul>
+    {% for session in sessions %}
+        <li>
+            {{ session.session_date }} - {{ session.time_spent_minutes }} minutes
+            {% if session.notes %}
+                ({{ session.notes }})
+            {% endif %}
+        </li>
+    {% empty %}
+        <li>No sessions logged yet.</li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'puzzle_list' %}">Back to puzzles</a>
+
+{% endblock %}

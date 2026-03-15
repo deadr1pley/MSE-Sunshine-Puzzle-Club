@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Puzzle
-from .forms import PuzzleForm
+from .models import Puzzle, PuzzleSession
+from .forms import PuzzleForm, PuzzleSessionForm
 
 # Create your views here.
 @login_required
@@ -46,3 +46,31 @@ def delete_puzzle(request, puzzle_id):
         return redirect('puzzle_list')
 
     return render(request, 'puzzles/delete_puzzle.html', {'puzzle': puzzle})
+
+@login_required
+def add_session(request, puzzle_id):
+    puzzle = get_object_or_404(Puzzle, id=puzzle_id, user=request.user)
+
+    if request.method == 'POST':
+        form = PuzzleSessionForm(request.POST)
+        if form.is_valid():
+            session = form.save(commit=False)
+            session.user = request.user
+            session.puzzle = puzzle
+            session.save()
+            return redirect('puzzle_sessions', puzzle_id=puzzle.id)
+    else:
+        form = PuzzleSessionForm()
+
+    return render(request, 'puzzles/add_session.html', {'form': form, 'puzzle': puzzle})
+
+
+@login_required
+def puzzle_sessions(request, puzzle_id):
+    puzzle = get_object_or_404(Puzzle, id=puzzle_id, user=request.user)
+    sessions = puzzle.sessions.all()
+
+    return render(request, 'puzzles/puzzle_sessions.html', {
+        'puzzle': puzzle,
+        'sessions': sessions
+    })
