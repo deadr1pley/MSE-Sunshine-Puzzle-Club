@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'core',
     'puzzles',
-    'accounts',
+    'accounts.apps.AccountsConfig',
     'payments',
 ]
 
