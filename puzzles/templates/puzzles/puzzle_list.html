@@ -1,23 +1,35 @@
 {% extends 'base.html' %}
 
-{% block title %}My Puzzles | MSE Sunshine Puzzle Club{% endblock %}
+{% block title %}My Puzzles{% endblock %}
 
 {% block content %}
-    <h1>MY Puzzles</h1>
+<h1 class="mb-4">My Puzzles</h1>
 
-    <a href="{% url 'add_puzzle' %}">Add Puzzle</a>
+<a href="{% url 'add_puzzle' %}" class="btn btn-warning mb-4">+ Add Puzzle</a>
 
-    <ul>
-        {% for puzzle in puzzles %}
-            <li>
-                {{ puzzle.title }} - {{ puzzle.get_status_display }} - {{ puzzle.pieces }} pieces
-                | <a href="{% url 'edit_puzzle' puzzle.id %}">Edit</a>
-                | <a href="{% url 'delete_puzzle' puzzle.id %}">Delete</a>
-                | <a href="{% url 'add_session' puzzle.id %}">Log Session</a>
-                | <a href="{% url 'puzzle_sessions' puzzle.id %}">View Session</a>
-            </li>
-        {% empty %}
-            <li>No puzzles added yet.</li>
-        {% endfor %}
-    </ul>
+<div class="row">
+    {% for puzzle in puzzles %}
+        <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card shadow-sm h-100 border-0 bg-light">
+                <div class="card-body">
+                    <h5 class="card-title mb-3">{{ puzzle.title }}</h5>
+
+                    <p class="mb-2">
+                        <strong>Status:</strong> {{ puzzle.get_status_display }}<br>
+                        <strong>Pieces:</strong> {{ puzzle.pieces }}
+                    </p>
+
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <a href="{% url 'edit_puzzle' puzzle.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+                        <a href="{% url 'delete_puzzle' puzzle.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                        <a href="{% url 'add_session' puzzle.id %}" class="btn btn-sm btn-outline-success">Log Session</a>
+                        <a href="{% url 'puzzle_sessions' puzzle.id %}" class="btn btn-sm btn-dark">View</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <p>No puzzles yet. Add your first one!</p>
+    {% endfor %}
+</div>
 {% endblock %}
