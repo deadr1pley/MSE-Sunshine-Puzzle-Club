@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Payment Successful{% endblock %}
+
+{% block content %}
+    <h1>Payment Successful 🎉</h1>
+    <p>You are now a premium member!</p>
+
+    <a href="{% url 'puzzle_list' %}">Go to My Puzzles</a>
+{% endblock %}

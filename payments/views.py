@@ -2,6 +2,7 @@ import stripe
 from django.conf import settings
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 # Create your views here.
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
@@ -38,3 +39,11 @@ def create_checkout_session(request):
         return redirect(checkout_session.url, code=303)
 
     return redirect('premium_page')
+
+@login_required
+def payment_success(request):
+    profile = request.user.userprofile
+    profile.is_premium = True
+    profile.save()
+
+    return render(request, 'payments/success.html')
