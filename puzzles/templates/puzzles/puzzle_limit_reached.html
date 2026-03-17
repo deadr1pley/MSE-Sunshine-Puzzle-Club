@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Puzzle Limit Reached{% endblock %}
+
+{% block content %}
+    <h1>Puzzle Limit Reached</h1>
+    <p>Free users can add up to 3 puzzles.</p>
+    <p>Upgrade to premium to unlock unlimited puzzle tracking.</p>
+
+    <a href="{% url 'puzzle_list' %}">Back to My Puzzles</a>
+{% endblock %}

@@ -11,6 +11,12 @@ def puzzle_list(request):
 
 @login_required
 def add_puzzle(request):
+    profile = request.user.userprofile
+    puzzle_count = Puzzle.objects.filter(user=request.user).count()
+
+    if not profile.is_premium and puzzle_count >= 3:
+        return render(request, 'puzzles/puzzle_limit_reached.html')
+
     if request.method == 'POST':
         form = PuzzleForm(request.POST)
         if form.is_valid():
