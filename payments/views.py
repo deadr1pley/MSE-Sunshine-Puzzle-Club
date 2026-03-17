@@ -42,7 +42,7 @@ def create_checkout_session(request):
 
 @login_required
 def payment_success(request):
-    profile = request.user.userprofile
+    profile, created = UserProfile.objects.get_or_create(User=request.user)
     profile.is_premium = True
     profile.save()
 
