@@ -10,6 +10,7 @@
         <a href="{% url 'home' %}">Home</a> |
         <a href="{% url 'puzzle_list' %}">My Puzzles</a> |
         <a href="{% url 'add_puzzle' %}">Add Puzzle</a> |
+        <a href="{% url 'premium_page' %}">Premium</a> |
 
         {% if user.is_authenticated %}
             <span>Welcome, {{ user.username }}</span> |
