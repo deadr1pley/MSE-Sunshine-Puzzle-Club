@@ -3,6 +3,61 @@
 {% block title %}Home | MSE Sunshine Puzzle Club{% endblock %}
 
 {% block content %}
-    <h1>Welcome to MSE Sunshine Puzzle Club</h1>
-    <p>This is a puzzle tracking web application where users can log and manage their puzzles.</p>
+<div class="row align-items-center g-5">
+    <div class="col-lg-6">
+        <h1 class="display-4 fw-bold mb-3">Welcome to MSE Sunshine Puzzle Club</h1>
+        <p class="lead mb-4">
+            A place for puzzle lovers to track their progress, log puzzle sessions,
+            and enjoy the challenge of both traditional puzzles and tricky Wasgij designs.
+            Whether you enjoy not knowing exactly what the finished picture will look like,
+            or simply want to keep track of which puzzles felt easier or harder,
+            MSE Sunshine Puzzle Club is here to make the puzzle journey more fun.
+        </p>
+
+        <div class="d-flex gap-3 flex-wrap">
+            {% if user.is_authenticated %}
+                <a href="{% url 'puzzle_list' %}" class="btn btn-dark btn-lg">My Puzzles</a>
+                <a href="{% url 'premium_page' %}" class="btn btn-warning btn-lg">Go Premium ⭐</a>
+            {% else %}
+                <a href="{% url 'register' %}" class="btn btn-warning btn-lg">Get Started</a>
+                <a href="{% url 'login' %}" class="btn btn-outline-dark btn-lg">Login</a>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="col-lg-6 text-center">
+        <img src="https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?auto=format&fit=crop&w=900&q=80"
+             alt="Puzzle pieces on a table"
+             class="img-fluid rounded shadow">
+    </div>
+</div>
+
+<div class="row mt-5 text-center">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h3 class="h5">Track Your Puzzles</h3>
+                <p class="mb-0">Save your puzzles and keep track of their type, difficulty, progress and piece count.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h3 class="h5">Log Puzzle Sessions</h3>
+                <p class="mb-0">Record your puzzle sessions with dates, notes, and time spent to follow your progress over time.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-0">
+            <div class="card-body">
+                <h3 class="h5">Unlock Premium</h3>
+                <p class="mb-0">Upgrade to premium to unlock unlimited puzzle tracking and enjoy greater flexibility as you follow your puzzle journey over time.</p>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
