@@ -3,39 +3,56 @@
 {% block title %}Puzzle Sessions{% endblock %}
 
 {% block content %}
-<h1>Sessions for {{ puzzle.title }}</h1>
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+        <div class="card shadow-sm border-0 bg-white">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center flex-wrap mb-4">
+                    <div>
+                        <h2 class="mb-1">{{ puzzle.title }}</h2>
+                        <p class="text-muted mb-0">Session history and total tracked time</p>
+                    </div>
+                    <a href="{% url 'add_session' puzzle.id %}" class="btn btn-warning">+ Log New Session</a>
+                </div>
 
-<p><strong>Total time spent:</strong> {{ total_minutes }} minutes</p>
+                <p class="mb-4">
+                    <strong>Total time spent:</strong> {{ total_minutes }} minutes
+                </p>
 
-<a href="{% url 'add_session' puzzle.id %}">Log New Session</a>
-<a href="{% url 'puzzle_list' %}">Back to puzzles</a>
+                {% if sessions %}
+                    <div class="table-responsive">
+                        <table class="table table-striped align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Time Spent</th>
+                                    <th>Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for session in sessions %}
+                                    <tr>
+                                        <td>{{ session.session_date }}</td>
+                                        <td>{{ session.time_spent_minutes }} minutes</td>
+                                        <td>
+                                            {% if session.notes %}
+                                                {{ session.notes }}
+                                            {% else %}
+                                                <span class="text-muted">No notes</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p>No sessions logged yet.</p>
+                {% endif %}
 
-{% if sessions %}
-    <table border="1" cellpadding="8">
-        <thead>
-            <tr>
-                <th>Date</th>
-                <th>Time Spent</th>
-                <th>Notes</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for session in sessions %}
-                <tr>
-                    <td>{{ session.session_date }}</td>
-                    <td>{{ session.time_spent_minutes }} minutes</td>
-                    <td>
-                        {% if session.notes %}
-                            {{ session.notes }}
-                        {% else %}
-                            No notes
-                        {% endif %}
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-{% else %}
-    <p>No sessions logged yet.</p>
-{% endif %}
+                <a href="{% url 'puzzle_list' %}" class="btn btn-outline-dark mt-3">Back to My Puzzles</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
