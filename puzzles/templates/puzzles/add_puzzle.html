@@ -1,9 +1,38 @@
-<h1>Add Puzzle</h1>
+{% extends 'base.html' %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save Puzzle</button>
-</form>
+{% block title %}Add Puzzle{% endblock %}
 
-<a href="{% url 'puzzle_list' %}">Back to puzzle list</a>
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-6">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h2 class="mb-4 text-center">Add New Puzzle</h2>
+
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">Title</label>
+                        {{ form.title }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Pieces</label>
+                        {{ form.pieces }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Status</label>
+                        {{ form.status }}
+                    </div>
+
+                    <button type="submit" class="btn btn-warning w-100">
+                        Save Puzzle
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
