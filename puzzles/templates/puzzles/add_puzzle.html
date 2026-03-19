@@ -11,10 +11,21 @@
 
                 <form method="post">
                     {% csrf_token %}
+                    {{ form.non_field_errors }}
 
                     <div class="mb-3">
                         <label class="form-label">Title</label>
                         {{ form.title }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Puzzle Type</label>
+                        {{ form.title }}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">difficulty</label>
+                        {{ form.difficulty }}
                     </div>
 
                     <div class="mb-3">
