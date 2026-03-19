@@ -5,6 +5,9 @@ class PuzzleForm(forms.ModelForm):
     class Meta:
         model = Puzzle
         fields = ['title', 'puzzle_type', 'pieces', 'difficulty', 'status']
+        widgets = {
+            'puzzle_type': forms.Select(attrs={'class': 'form-select'}),
+        }
 
 class PuzzleSessionForm(forms.ModelForm):
     class Meta:
