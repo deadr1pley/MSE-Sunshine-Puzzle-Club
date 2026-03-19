@@ -1,0 +1,33 @@
+/* Card styling */
+.puzzle-card {
+    border-radius: 16px;
+    transition: all 0,25s ease;
+    background: #ffffff;
+}
+
+/* Hover effect */
+.puzzle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    border: 1px solid #ffc107;
+}
+/* Card body spacing */
+.puzzle-card .card-body {
+    padding: 1.5rem;
+}
+
+/* Title */
+.puzzle-card .card-title {
+    font-weight: 600;
+    color: #212529;
+}
+
+/* Buttons */
+.puzzle-card .btn {
+    border-radius: 8px;
+}
+
+/* Backgrounds */
+body {
+    background-color: #f5f6f8;
+}
