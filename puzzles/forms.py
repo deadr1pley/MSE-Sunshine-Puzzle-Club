@@ -6,7 +6,11 @@ class PuzzleForm(forms.ModelForm):
         model = Puzzle
         fields = ['title', 'puzzle_type', 'pieces', 'difficulty', 'status']
         widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
             'puzzle_type': forms.Select(attrs={'class': 'form-select'}),
+            'pieces': forms.NumberInput(attrs={'class': 'form-control'}),
+            'difficulty': forms.Select(attrs={'class': 'form-select'}),
+            'status': forms.Select(attrs={'class': 'form-select'}),
         }
 
 class PuzzleSessionForm(forms.ModelForm):
