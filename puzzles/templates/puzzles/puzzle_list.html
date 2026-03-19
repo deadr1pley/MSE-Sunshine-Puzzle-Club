@@ -15,7 +15,15 @@
                     <h5 class="card-title mb-3">{{ puzzle.title }}</h5>
 
                     <p class="mb-2">
-                        <strong>Status:</strong> {{ puzzle.get_status_display }}<br>
+                        <strong>Status:</strong>
+                        {% if puzzle.status == 'completed' %}
+                            <span class="badge bg-success">Completed</span>
+                        {% elif puzzle.status == 'in_progress' %}
+                            <span class="badge bg-warning text-dark">In Progress</span>
+                        {% else %}
+                            <span class="badge bg-secondary">Not Started</span>
+                        {% endif %}
+                        <br>
                         <strong>Pieces:</strong> {{ puzzle.pieces }}
                     </p>
 
