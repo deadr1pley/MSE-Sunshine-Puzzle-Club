@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Home | MSE Sunshine Puzzle Club{% endblock %}
 
@@ -26,9 +27,9 @@
     </div>
 
     <div class="col-lg-6 text-center">
-        <img src="https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?auto=format&fit=crop&w=900&q=80"
-             alt="Puzzle pieces on a table"
-             class="img-fluid rounded shadow">
+        <img src="{% static 'images/puzzle-home.png' %}"
+             alt="Puzzle box"
+             class="img-fluid rounded shadow-sm">
     </div>
 </div>
 
