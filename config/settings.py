@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-vyi-j^nr=$&%@*bp5ok+4b5iij(&o5x0)@e9u5=1(+%e%l#rz8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com"]
+ALLOWED_HOSTS = ["mse-sunshine-puzzle-club-b1de33547a8a.herokuapp.com"]
 
 
 # Application definition
