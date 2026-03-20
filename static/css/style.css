@@ -1,7 +1,7 @@
 /* Card styling */
 .puzzle-card {
     border-radius: 16px;
-    transition: all 0,25s ease;
+    transition: all 0.25s ease;
     background: #ffffff;
 }
 
