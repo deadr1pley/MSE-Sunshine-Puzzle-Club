@@ -1,128 +1,148 @@
 # MSE Sunshine Puzzle Club
 
-MSE Sunshine Puzzle Club is a full-stack Django web application designed for puzzle enthusiasts to track their puzzle progress, log puzzle sessions, and unlock premium features through Stripe payments.
+MSE Sunshine Puzzle Club is a full-stack Django web application that allows users to track their puzzle collection, manage progress, and upgrade to a premium membership.
 
-## Live Site
+---
 
-[View the live project here](https://mse-sunshine-puzzle-club-b1de33547a8a.herokuapp.com/)
+## 📌 Project Overview
 
-## Project Goals
+This application provides users with the ability to:
 
-The goal of this project is to provide puzzle lovers with a simple and engaging platform where they can:
-- track their puzzles
-- log puzzle sessions
-- monitor their progress over time
-- unlock premium access for unlimited puzzle tracking
-
-This application is especially suitable for users who enjoy both traditional puzzles and Wasgij puzzles.
-
-## User Experience
-
-### Target Audience
-- Puzzle enthusiasts
-- Users who enjoy tracking hobby progress
-- Wasgij and traditional puzzle fans
-- Users looking for a simple puzzle log system
-
-### User Goals
-- Register and log in
+- Create an account and log in
 - Add and manage puzzles
-- Log puzzle sessions
-- View time spent on each puzzle
-- Upgrade to premium for unlimited puzzle tracking
+- Track puzzle progress
+- Upgrade to a premium membership via Stripe
+- View their personal puzzle collection
 
-### Site Owner Goals
-- Provide a useful puzzle tracking service
-- Offer premium functionality through Stripe payments
-- Create an enjoyable and structured experience for users
+---
 
-## Features
+## 🚀 Live Site
 
-### Existing Features
-- User registration, login, and logout
-- Personal puzzle dashboard
-- Add, edit, and delete puzzles
-- Log puzzle sessions
-- View puzzle session history
-- Premium membership page
-- Stripe checkout for premium upgrade
-- Automatic user profile creation
-- Responsive layout using Bootstrap
+👉 https://mse-sunshine-puzzle-club-b1de33547a8a.herokuapp.com/
 
-### Future Features
-- Community puzzle comparison
-- More detailed statistics
-- Search and filter tools
-- Puzzle images for each entry
-- Improved premium insights
+---
 
-## Database Design
+## 👤 Test User
 
-The relational database structure includes the following models:
+You can create your own account or use:
 
-### User
-Django's built-in authentication model is used for user accounts.
+- Username: testuser  
+- Password: Test1234  
 
-### UserProfile
-- linked to User with a OneToOne relationship
-- stores premium status
+(Admin credentials are provided separately if required.)
 
-### Puzzle
-- linked to User with a ForeignKey
-- stores title, puzzle type, piece count, difficulty, and status
+---
 
-### PuzzleSession
-- linked to User with a ForeignKey
-- linked to Puzzle with a ForeignKey
-- stores session date, time spent, and notes
+## 🎯 Features
 
-## Technologies Used
+### User Authentication
+- Register, login, logout functionality
 
-- HTML
-- CSS
-- Bootstrap 5
+### Puzzle Management
+- Add puzzles
+- Track pieces and progress
+- View "My Puzzles" dashboard
+
+### Premium Membership
+- Stripe payment integration
+- Unlock premium features
+
+### Responsive Design
+- Works on desktop and mobile devices
+
+---
+
+## 🧪 Testing
+
+Testing details are documented in a separate file:
+
+👉 See TESTING.md for full testing documentation.
+
+---
+
+## 💡 Lighthouse Testing
+
+Lighthouse testing was conducted using Chrome DevTools on the live deployed application.
+
+### Homepage (Logged In)
+
+![Homepage Logged In](static/images/testing/homepage-1%20logged-in.png)
+
+- Performance: 99
+- Accessibility: 97
+- Best Practices: 100
+- SEO: 91
+
+---
+
+### Homepage (Not Logged In)
+
+![Homepage Not Logged In](static/images/testing/homepage-1-registrate.png)
+
+- Performance: 99
+- Accessibility: 97
+- Best Practices: 100
+- SEO: 91
+
+---
+
+### My Puzzles Page
+
+![My Puzzles](static/images/testing/my-puzzles-1.png)
+
+- Performance: 100
+- Accessibility: 97
+- Best Practices: 100
+- SEO: 90
+
+---
+
+## 🛠️ Technologies Used
+
 - Python
 - Django
-- SQLite (development)
-- PostgreSQL / Heroku Postgres (production)
-- Stripe
-- Git
-- GitHub
+- PostgreSQL (Heroku)
+- HTML, CSS, Bootstrap
+- JavaScript
+- Stripe API
 - Heroku
 
-## Testing
+---
 
-Testing details are included below.
+## 🚀 Deployment
 
-## Deployment
+The project is deployed using Heroku:
 
-The project was deployed to Heroku.
+1. Create Heroku app  
+2. Add PostgreSQL database  
+3. Configure environment variables  
+4. Run migrations:
+    
+    python manage.py migrate
 
-### Local Deployment
-1. Clone the repository
-2. Create and activate a virtual environment
-3. Install dependencies from `requirements.txt`
-4. Set environment variables
-5. Run migrations
-6. Start the development server
+5. Create superuser:
 
-### Heroku Deployment
-1. Create a Heroku app
-2. Add config vars
-3. Connect GitHub repository or deploy manually
-4. Add PostgreSQL database
-5. Run migrations
-6. Open the deployed app
+    python manage.py createsuperuser
 
-## Credits
+6. Deploy via GitHub  
 
-### Content
-- Project idea and content were created for this project.
+---
 
-### Media
-- Puzzle homepage image provided by the project author.
+## ⚠️ Known Issues
 
-### Code
-- Django documentation
-- Bootstrap documentation
-- Stripe documentation
+- Minor SEO improvements possible  
+- Some UI alignment improvements could be made  
+
+---
+
+## 📚 Credits
+
+- Code Institute course material  
+- Django documentation  
+- Stripe documentation  
+
+---
+
+## 🙌 Acknowledgements
+
+Thanks to Code Institute and the learning platform for guidance throughout the project.
