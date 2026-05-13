@@ -16,6 +16,28 @@ This application provides users with the ability to:
 
 ---
 
+## 🎨 Wireframes
+
+Wireframes were created during the planning stage to help structure the layout and user experience of the application.
+
+### Homepage Wireframe
+
+![Homepage Wireframe](static/images/wireframes/homepage-wireframe.png)
+
+---
+
+### My Puzzles Wireframe
+
+![My Puzzles Wireframe](static/images/wireframes/my-puzzles-wireframe.png)
+
+---
+
+### Add Puzzle Wireframe
+
+![Add Puzzle Wireframe](static/images/wireframes/add-puzzle-wireframe.png)
+
+---
+
 ## 🚀 Live Site
 
 👉 https://mse-sunshine-puzzle-club-b1de33547a8a.herokuapp.com/
