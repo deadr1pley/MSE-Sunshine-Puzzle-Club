@@ -191,23 +191,80 @@ The project is deployed using Heroku:
 
 1. Create Heroku app  
 2. Add PostgreSQL database  
-3. Configure environment variables  
-4. Run migrations:
+3. Configure environment variables:
+
+    - SECRET_KEY
+    - DATABASE_URL
+    - STRIPE_PUBLIC_KEY
+    - STRIPE_SECRET_KEY
+
+4. Install project requierments:
+    
+    pip install -r requerments.txt
+
+5. Add a Procfile in the root directory:
+
+    web: gunicorn config.wsgi
+
+6. Configure static files settings in `settings.py`
+
+7. Run migrations:
     
     python manage.py migrate
 
-5. Create superuser:
+8. Create superuser:
 
     python manage.py createsuperuser
 
-6. Deploy via GitHub  
+9. Deploy via GitHub  
+
+---
+
+### 💻 Local Deployment
+
+To clone this repository:
+
+    git clone https://github.com/deadr1pley/MSE-Sunshine-Puzzle-Club.git
+
+Navigate to the project folder:
+
+    cd MSE-Sunshine-Puzzle-Club
+
+Create a virtual environment:
+
+    python -m venv .venv
+
+Activate the virtual environment (Git Bash):
+
+    source .venv/Scripts/activate
+
+Install requirements:
+
+    pip install -r requirements.txt
+
+Run the server:
+
+    python manage.py runserver
+
+---
+
+### 📁 Static Files
+
+Static files are managed using:
+
+- WhiteNoise
+- STATIC_ROOT
+- STATICFILES_DIRS
+
+This ensures CSS, images, and styling load correctly in production.
 
 ---
 
 ## ⚠️ Known Issues
 
 - Minor SEO improvements possible  
-- Some UI alignment improvements could be made  
+- Some heading structure warnings appear during HTML validation due to Django template rendering
+- Small UI alignment improvements could still be made on certain form layouts 
 
 ---
 
