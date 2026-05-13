@@ -109,6 +109,82 @@ Lighthouse testing was conducted using Chrome DevTools on the live deployed appl
 
 ---
 
+## 🗄️ Data Schema
+
+The project uses a relational PostgreSQL database to manage users, puzzles, puzzle sessions, and premium membership functionality.
+
+### User Model
+
+Django’s built-in User model is used for authentication and account management.
+
+| Field | Type |
+|------|------|
+| username | CharField |
+| email | EmailField |
+| password | CharField |
+
+---
+
+### UserProfile Model
+
+The UserProfile model extends the default Django User model and stores premium membership information.
+
+| Field | Type |
+|------|------|
+| user | OneToOneField (User) |
+| is_premium | BooleanField |
+
+Relationship:
+- One User has one UserProfile
+
+---
+
+### Puzzle Model
+
+The Puzzle model stores information about puzzles added by users.
+
+| Field | Type |
+|------|------|
+| user | ForeignKey (User) |
+| title | CharField |
+| puzzle_type | CharField |
+| pieces | IntegerField |
+| difficulty | CharField |
+| status | CharField |
+
+Relationship:
+- One User can have many Puzzles
+
+---
+
+### PuzzleSession Model
+
+The PuzzleSession model stores progress tracking and session information for each puzzle.
+
+| Field | Type |
+|------|------|
+| puzzle | ForeignKey (Puzzle) |
+| user | ForeignKey (User) |
+| session_date | DateField |
+| time_spent_minutes | IntegerField |
+| notes | TextField |
+
+Relationships:
+- One Puzzle can have many PuzzleSessions
+- One User can have many PuzzleSessions
+
+---
+
+## 🔗 Entity Relationship Overview
+
+User  
+├── UserProfile (OneToOne)  
+├── Puzzle (OneToMany)  
+│   └── PuzzleSession (OneToMany)  
+└── PuzzleSession (OneToMany)
+
+---
+
 ## 🚀 Deployment
 
 The project is deployed using Heroku:
