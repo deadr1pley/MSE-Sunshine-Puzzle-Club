@@ -211,7 +211,7 @@ User
 
 The project is deployed using Heroku:
 
-1. Create Heroku app  
+1. Create a Heroku app  
 2. Add PostgreSQL database  
 3. Configure environment variables:
 
@@ -220,9 +220,9 @@ The project is deployed using Heroku:
     - STRIPE_PUBLIC_KEY
     - STRIPE_SECRET_KEY
 
-4. Install project requierments:
+4. Install project requirements:
     
-    pip install -r requerments.txt
+    pip install -r requirements.txt
 
 5. Add a Procfile in the root directory:
 
