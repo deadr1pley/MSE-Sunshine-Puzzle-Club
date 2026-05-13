@@ -8,6 +8,20 @@ Both manual testing and validation tools were used to verify the application.
 
 ---
 
+## 👤 User Stories Testing
+
+| User Story | Test Performed | Result |
+|---|---|---|
+| As a new user, I want to register an account so I can track my puzzles. | Registration form tested with a new user account. | Pass |
+| As a registered user, I want to log in and out securely. | Login and logout functionality tested using valid credentials. | Pass |
+| As a user, I want to add puzzles to my collection. | Add Puzzle form submitted successfully. | Pass |
+| As a user, I want to view my saved puzzles. | My Puzzles page tested after creating puzzle entries. | Pass |
+| As a user, I want to track puzzle progress. | Puzzle status and pieces data saved correctly. | Pass |
+| As a user, I want premium functionality. | Stripe payment tested using Stripe test mode. | Pass |
+| As an admin, I want to manage users and puzzle data. | Django admin panel tested successfully. | Pass |
+
+---
+
 ## ✅ Manual Testing
 
 ### User Authentication
@@ -57,6 +71,19 @@ The application was tested manually using Chrome DevTools across different scree
 - Desktop screens
 
 All pages remained functional and responsive.
+
+---
+
+## 🌐 Browser Testing
+
+The application was manually tested in the following browsers:
+
+| Browser | Result |
+|---|---|
+| Google Chrome | Pass |
+| Microsoft Edge | Pass |
+
+Core functionality such as navigation, authentication, puzzle management, and Stripe payments worked correctly across tested browsers.
 
 ---
 
